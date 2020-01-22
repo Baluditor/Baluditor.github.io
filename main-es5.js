@@ -781,19 +781,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ./services/auth.service */
     "./src/app/services/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var AppComponent = // We need to inject the auth service to the constructor and share it's data and functionality
     // As we want to bind it in the html we making it public
-    function AppComponent(auth) {
+    // For GitHub pages we need to add router and the path hax
+    function AppComponent(auth, router) {
       _classCallCheck(this, AppComponent);
 
       this.auth = auth;
+      this.router = router;
       this.title = 'drafter-prework';
+      var path = localStorage.getItem('path');
+
+      if (path) {
+        localStorage.removeItem('path');
+        this.router.navigate([path]);
+      }
     };
 
     AppComponent.ctorParameters = function () {
       return [{
         type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }];
     };
 

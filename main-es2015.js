@@ -360,19 +360,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
 let AppComponent = class AppComponent {
     // We need to inject the auth service to the constructor and share it's data and functionality
     // As we want to bind it in the html we making it public
-    constructor(auth) {
+    // For GitHub pages we need to add router and the path hax
+    constructor(auth, router) {
         this.auth = auth;
+        this.router = router;
         this.title = 'drafter-prework';
+        const path = localStorage.getItem('path');
+        if (path) {
+            localStorage.removeItem('path');
+            this.router.navigate([path]);
+        }
     }
 };
 AppComponent.ctorParameters = () => [
-    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
