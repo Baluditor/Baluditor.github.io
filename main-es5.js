@@ -51,47 +51,67 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- User logged in. \nOur user is an observable which means we need to subscribe to it. \nIn angular we can do it with the async pipe which will automaticall manage the subscription for us.\nWriting \"as user\" sets a tempalte variable for the user document information so we can use directly in the template -->\n<div *ngIf=\"auth.user$ | async; then authenticated else guest\">\n    <!-- template will replace this div -->\n</div>\n\n<!--SOLUTION 1 hard code \n    \n    User NOT logged in\n<ng-template #guest>\n    <h3>Howdy, GUEST</h3>\n    <p>Login to get started...</p>\n\n    <button (click)=\"auth.facebookSignin()\">\n        <i class=\"fa fa-facebook\"></i> Connect Facebook\n    </button>\n    <br>\n    <button (click)=\"auth.googleSignin()\">\n        <i class=\"fa fa-google\"></i> Connect Google\n    </button>\n</ng-template>\n\n<ng-template #authenticated>\n    <div *ngIf=\"auth.user$ | async as user\">\n        <h3>Howdy, {{ user.displayName }}</h3>\n        <img  [src]=\"user.photoURL\">\n        <p>UID: {{ user.uid }}</p>\n        <button (click)=\"auth.signOut()\">Logout</button>\n    </div>\n</ng-template>\n -->\n\n\n<ng-template #guest>\n    <ngx-auth-firebaseui-login\n    [providers]=\"['google', 'facebook', 'twitter', 'github']\"    \n    ></ngx-auth-firebaseui-login>\n</ng-template>\n\n<ng-template #authenticated>\n    <div *ngIf=\"auth.user$ | async as user\">\n        <ngx-auth-firebaseui-avatar></ngx-auth-firebaseui-avatar>\n        <ngx-auth-firebaseui-user></ngx-auth-firebaseui-user>\n    </div>  \n</ng-template>\n";
+    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n";
     /***/
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/super-secret/super-secret.component.html":
-  /*!************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/super-secret/super-secret.component.html ***!
-    \************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/home/home.component.html":
+  /*!*******************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/home/home.component.html ***!
+    \*******************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppSuperSecretSuperSecretComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsHomeHomeComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>super-secret works!</p>\n";
+    __webpack_exports__["default"] = "<div class=\"wrapper\">\n  <h1 class=\"text-4xl font-bold text-center text-white\">Home Component</h1>\n  <div class=\"spacer\"></div>\n    <!-- Our user is an observable so we need to subscribe to it, we do that with the async pipe which will automatically manage the subscription for us\n        we can write as user which will set a template variable for the user document information that we can use directly here in the template\n       and if the would be null we will display a log in button\n        For debugging we will use the json pipe to show the user object directly in the html and this is only visible for the logged in users-->\n    <div *ngIf=\"auth.user$ | async as user; else login\" class=\"text-center\">\n      <div class=\"text-white text-center text-xl\">Successful redirect! <br> User logged in.</div>\n    <button class=\"btn\" (click)=\"toUserProfile()\">User Profile</button>\n    </div>\n    <ng-template #login>\n      <div class=\"text-center\">\n        <button class=\"btn\" (click)=\"auth.googleSignin()\">Login with Google</button>\n        <button class=\"btn\" (click)=\"auth.facebookSignin()\">Login with Facebook</button>\n        <button class=\"btn\" (click)=\"auth.githubSignin()\">Login with GitHub</button>\n        <button class=\"btn\" (click)=\"auth.twitterSignin()\">Login with Twitter</button>\n      </div>\n    </ng-template>\n</div>\n";
     /***/
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/user-profile/user-profile.component.html":
-  /*!************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-profile/user-profile.component.html ***!
-    \************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/not-found/not-found.component.html":
+  /*!*****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/not-found/not-found.component.html ***!
+    \*****************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppUserProfileUserProfileComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsNotFoundNotFoundComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "This site is working as expected";
+    __webpack_exports__["default"] = "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\"\n        content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n  <title>Page not found!</title>\n</head>\n<body>\n\n</body>\n</html>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/user-profile/user-profile.component.html":
+  /*!***********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/user-profile/user-profile.component.html ***!
+    \***********************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsUserProfileUserProfileComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<h1 class=\"text-white text-4xl text-center pb-32\">User Profile Component</h1>\n<div class=\"spacer\"></div>\n\n<div *ngIf=\"auth.user$ | async as user; else notLoggedIn\">\n  <pre class=\"text-white text-xl\">\n    User object to json:\n    <div class=\"pl-32\">\n      {{ user | json }}\n    </div>\n\n  </pre>\n  <hr>\n  <div class=\"text-center\">\n    <button class=\"btn\" (click)=\"backToHome()\">Homepage</button>\n    <button class=\"btn\" (click)=\"auth.signOut()\">Sign Out</button>\n    <button class=\"btn\" (click)=\"deleteAccount2()\">Delete Account</button>\n  </div>\n\n\n</div>\n\n<ng-template #notLoggedIn>\n  You are not logged in, please sign in!\n  <button class=\"btn\" (click)=\"backToHome()\">Back to the homepage</button>\n</ng-template>\n";
     /***/
   },
 
@@ -690,25 +710,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
-    /* harmony import */
 
-
-    var _super_secret_super_secret_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./super-secret/super-secret.component */
-    "./src/app/super-secret/super-secret.component.ts");
-    /* harmony import */
-
-
-    var _services_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./services/auth.guard */
-    "./src/app/services/auth.guard.ts");
-
-    var routes = [// secret should be only available for logged in users
-    {
-      path: 'secret',
-      component: _super_secret_super_secret_component__WEBPACK_IMPORTED_MODULE_3__["SuperSecretComponent"],
-      canActivate: [_services_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
-    }];
+    var routes = [];
 
     var AppRoutingModule = function AppRoutingModule() {
       _classCallCheck(this, AppRoutingModule);
@@ -722,22 +725,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/app.component.css":
-  /*!***********************************!*\
-    !*** ./src/app/app.component.css ***!
-    \***********************************/
+  "./src/app/app.component.scss":
+  /*!************************************!*\
+    !*** ./src/app/app.component.scss ***!
+    \************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppAppComponentCss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppAppComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
@@ -779,13 +782,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ./services/auth.service */
     "./src/app/services/auth.service.ts");
 
-    var AppComponent = // inject the AuthService in the construtor and share its data and functionality.
-    // As we want to bind this to the HTML we make it as a public property in the constructor
+    var AppComponent = // We need to inject the auth service to the constructor and share it's data and functionality
+    // As we want to bind it in the html we making it public
     function AppComponent(auth) {
       _classCallCheck(this, AppComponent);
 
       this.auth = auth;
-      this.title = 'auth-practice';
+      this.title = 'drafter-prework';
     };
 
     AppComponent.ctorParameters = function () {
@@ -800,8 +803,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! raw-loader!./app.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./app.component.css */
-      "./src/app/app.component.css")).default]
+      /*! ./app.component.scss */
+      "./src/app/app.component.scss")).default]
     })], AppComponent);
     /***/
   },
@@ -858,131 +861,68 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/fire/auth */
-    "./node_modules/@angular/fire/auth/es2015/index.js");
-    /* harmony import */
-
-
-    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/fire/firestore */
     "./node_modules/@angular/fire/firestore/es2015/index.js");
     /* harmony import */
 
 
-    var _angular_fire__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/fire/auth */
+    "./node_modules/@angular/fire/auth/es2015/index.js");
+    /* harmony import */
+
+
+    var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../environments/environment */
+    "./src/environments/environment.ts");
+    /* harmony import */
+
+
+    var _angular_fire__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/fire */
     "./node_modules/@angular/fire/es2015/index.js");
     /* harmony import */
 
 
-    var _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! ./user-profile/user-profile.component */
-    "./src/app/user-profile/user-profile.component.ts");
-    /* harmony import */
-
-
-    var _super_secret_super_secret_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! ./super-secret/super-secret.component */
-    "./src/app/super-secret/super-secret.component.ts");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var _services_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-    /*! ./services/auth.guard */
-    "./src/app/services/auth.guard.ts");
+    var _components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./components/user-profile/user-profile.component */
+    "./src/app/components/user-profile/user-profile.component.ts");
     /* harmony import */
 
 
-    var _angular_material_extensions_password_strength__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-    /*! @angular-material-extensions/password-strength */
-    "./node_modules/@angular-material-extensions/password-strength/esm2015/password-strength.js");
+    var _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./components/home/home.component */
+    "./src/app/components/home/home.component.ts");
     /* harmony import */
 
 
-    var ngx_auth_firebaseui__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-    /*! ngx-auth-firebaseui */
-    "./node_modules/ngx-auth-firebaseui/esm2015/ngx-auth-firebaseui.js");
-    /* harmony import */
-
-
-    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
-    /*! @angular/platform-browser/animations */
-    "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-    /* harmony import */
-
-
-    var firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
-    /*! firebaseui-angular */
-    "./node_modules/firebaseui-angular/fesm2015/firebaseui-angular.js");
-    /* harmony import */
-
-
-    var src_environments_environment__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
-    /*! src/environments/environment */
-    "./src/environments/environment.ts");
-
-    var firebaseUiAuthConfig = {
-      signInFlow: 'popup',
-      signInOptions: [firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebase"].auth.GoogleAuthProvider.PROVIDER_ID, {
-        scopes: ['public_profile', 'email', 'user_likes', 'user_friends'],
-        customParameters: {
-          'auth_type': 'reauthenticate'
-        },
-        provider: firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebase"].auth.FacebookAuthProvider.PROVIDER_ID
-      }, firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebase"].auth.TwitterAuthProvider.PROVIDER_ID, firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebase"].auth.GithubAuthProvider.PROVIDER_ID, {
-        requireDisplayName: false,
-        provider: firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebase"].auth.EmailAuthProvider.PROVIDER_ID
-      }, firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebase"].auth.PhoneAuthProvider.PROVIDER_ID, firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebaseui"].auth.AnonymousAuthProvider.PROVIDER_ID],
-      tosUrl: '<your-tos-link>',
-      privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
-      credentialHelper: firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["firebaseui"].auth.CredentialHelper.ACCOUNT_CHOOSER_COM
-    };
+    var _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./components/not-found/not-found.component */
+    "./src/app/components/not-found/not-found.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_8__["UserProfileComponent"], _super_secret_super_secret_component__WEBPACK_IMPORTED_MODULE_9__["SuperSecretComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_7__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig), _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_6__["AngularFirestoreModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuthModule"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["RouterModule"].forRoot([{
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_10__["UserProfileComponent"], _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"], _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__["NotFoundComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_fire__WEBPACK_IMPORTED_MODULE_8__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"]), _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestoreModule"], _angular_fire_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuthModule"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["RouterModule"].forRoot([{
         path: '',
-        component: _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]
+        component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"]
       }, {
-        path: 'secret',
-        component: _super_secret_super_secret_component__WEBPACK_IMPORTED_MODULE_9__["SuperSecretComponent"],
-        canActivate: [_services_auth_guard__WEBPACK_IMPORTED_MODULE_11__["AuthGuard"]]
-      }]), _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_14__["BrowserAnimationsModule"], _angular_material_extensions_password_strength__WEBPACK_IMPORTED_MODULE_12__["MatPasswordStrengthModule"], ngx_auth_firebaseui__WEBPACK_IMPORTED_MODULE_13__["NgxAuthFirebaseUIModule"].forRoot({
-        apiKey: src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig.apiKey,
-        authDomain: src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig.authDomain,
-        databaseURL: src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig.databaseURL,
-        projectId: src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig.projectId,
-        storageBucket: src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig.storageBucket,
-        messagingSenderId: src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig.messagingSenderId
-      }, function () {
-        return 'your_app_name_factory';
+        path: 'user-profile',
+        component: _components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_10__["UserProfileComponent"]
       }, {
-        enableFirestoreSync: true,
-        toastMessageOnAuthSuccess: true,
-        toastMessageOnAuthError: true,
-        authGuardFallbackURL: '/loggedout',
-        authGuardLoggedInURL: '/loggedin',
-        passwordMaxLength: 60,
-        passwordMinLength: 8,
-        // Same as password but for the name
-        nameMaxLength: 50,
-        nameMinLength: 3,
-        // If set, sign-in/up form is not available until email has been verified.
-        // Plus protected routes are still protected even though user is connected.
-        guardProtectedRoutesUntilEmailIsVerified: true,
-        enableEmailVerification: true
-      }), _angular_fire__WEBPACK_IMPORTED_MODULE_7__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_16__["environment"].firebaseConfig), _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuthModule"], firebaseui_angular__WEBPACK_IMPORTED_MODULE_15__["FirebaseUIModule"].forRoot(firebaseUiAuthConfig)],
+        path: '**',
+        component: _components_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_12__["NotFoundComponent"]
+      }])],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })], AppModule);
@@ -990,23 +930,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/services/auth.guard.ts":
-  /*!****************************************!*\
-    !*** ./src/app/services/auth.guard.ts ***!
-    \****************************************/
+  "./src/app/components/home/home.component.scss":
+  /*!*****************************************************!*\
+    !*** ./src/app/components/home/home.component.scss ***!
+    \*****************************************************/
 
-  /*! exports provided: AuthGuard */
+  /*! exports provided: default */
 
   /***/
-  function srcAppServicesAuthGuardTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppComponentsHomeHomeComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".spacer {\n  height: 300px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9ob21lL0Q6XFxEZXZcXEFuZ3VsYXJcXGRyYWZ0ZXItcHJld29yay9zcmNcXGFwcFxcY29tcG9uZW50c1xcaG9tZVxcaG9tZS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zcGFjZXIge1xyXG4gIGhlaWdodDogMzAwcHg7XHJcbn1cclxuIiwiLnNwYWNlciB7XG4gIGhlaWdodDogMzAwcHg7XG59Il19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/home/home.component.ts":
+  /*!***************************************************!*\
+    !*** ./src/app/components/home/home.component.ts ***!
+    \***************************************************/
+
+  /*! exports provided: HomeComponent */
+
+  /***/
+  function srcAppComponentsHomeHomeComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AuthGuard", function () {
-      return AuthGuard;
+    __webpack_require__.d(__webpack_exports__, "HomeComponent", function () {
+      return HomeComponent;
     });
     /* harmony import */
 
@@ -1023,74 +983,328 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/auth.service */
+    "./src/app/services/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+
+    var HomeComponent =
+    /*#__PURE__*/
+    function () {
+      function HomeComponent(auth, router) {
+        _classCallCheck(this, HomeComponent);
+
+        this.auth = auth;
+        this.router = router;
+      }
+
+      _createClass(HomeComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "toUserProfile",
+        value: function toUserProfile() {
+          this.router.navigate(['user-profile']);
+        }
+      }]);
+
+      return HomeComponent;
+    }();
+
+    HomeComponent.ctorParameters = function () {
+      return [{
+        type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }];
+    };
+
+    HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-home',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./home.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/home/home.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./home.component.scss */
+      "./src/app/components/home/home.component.scss")).default]
+    })], HomeComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/not-found/not-found.component.scss":
+  /*!***************************************************************!*\
+    !*** ./src/app/components/not-found/not-found.component.scss ***!
+    \***************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsNotFoundNotFoundComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbm90LWZvdW5kL25vdC1mb3VuZC5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/not-found/not-found.component.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/components/not-found/not-found.component.ts ***!
+    \*************************************************************/
+
+  /*! exports provided: NotFoundComponent */
+
+  /***/
+  function srcAppComponentsNotFoundNotFoundComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "NotFoundComponent", function () {
+      return NotFoundComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var NotFoundComponent =
+    /*#__PURE__*/
+    function () {
+      function NotFoundComponent() {
+        _classCallCheck(this, NotFoundComponent);
+      }
+
+      _createClass(NotFoundComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return NotFoundComponent;
+    }();
+
+    NotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-not-found',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./not-found.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/not-found/not-found.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./not-found.component.scss */
+      "./src/app/components/not-found/not-found.component.scss")).default]
+    })], NotFoundComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/user-profile/user-profile.component.scss":
+  /*!*********************************************************************!*\
+    !*** ./src/app/components/user-profile/user-profile.component.scss ***!
+    \*********************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsUserProfileUserProfileComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvdXNlci1wcm9maWxlL3VzZXItcHJvZmlsZS5jb21wb25lbnQuc2NzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/user-profile/user-profile.component.ts":
+  /*!*******************************************************************!*\
+    !*** ./src/app/components/user-profile/user-profile.component.ts ***!
+    \*******************************************************************/
+
+  /*! exports provided: UserProfileComponent */
+
+  /***/
+  function srcAppComponentsUserProfileUserProfileComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "UserProfileComponent", function () {
+      return UserProfileComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../services/auth.service */
+    "./src/app/services/auth.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
+    var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/fire/auth */
+    "./node_modules/@angular/fire/auth/es2015/index.js");
     /* harmony import */
 
 
-    var _auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./auth.service */
-    "./src/app/services/auth.service.ts");
+    var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/fire/firestore */
+    "./node_modules/@angular/fire/firestore/es2015/index.js");
 
-    var AuthGuard =
+    var UserProfileComponent =
     /*#__PURE__*/
-    // We can use this on any route that requires this logic.
-    // We can tell Angluar where to apply it, by going back to our router (app-routing.module.ts) and add the can activate proprerty 
-    // And adding it to the arry "canActivate: [AuthGuard]"
     function () {
-      function AuthGuard(auth, router) {
-        _classCallCheck(this, AuthGuard);
+      function UserProfileComponent(auth, aauth, router, afs) {
+        _classCallCheck(this, UserProfileComponent);
 
         this.auth = auth;
+        this.aauth = aauth;
         this.router = router;
-      } // We already have the user obaservable from the auth service but it's not in boolen format yet
+        this.afs = afs;
+        this.user = this.auth.user$;
+      }
 
+      _createClass(UserProfileComponent, [{
+        key: "backToHome",
+        value: function backToHome() {
+          this.router.navigate(['/']);
+        }
+      }, {
+        key: "deleteUserAccountFromDb",
+        value: function deleteUserAccountFromDb(user) {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee() {
+            var userRef;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    userRef = this.afs.doc("users/".concat(user.uid));
+                    _context.next = 3;
+                    return userRef.delete();
 
-      _createClass(AuthGuard, [{
-        key: "canActivate",
-        value: function canActivate(next, state) {
-          var _this = this;
-
-          // inject the auth service in the guard constructor
-          return this.auth.user$.pipe( // complete the observable after the first value is omitted because we don't need it to keep running after the rout hase been blocked
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1), // map the object to a boolean, we can do that because we have an observable of null if the user is not logged in
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (user) {
-            return !!user;
-          }), // if the user user is not logged in we want to navigate them to a log in page or something, but we just console log acccess denied
-          Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (loggedIn) {
-            if (!loggedIn) {
-              console.log('access denied');
-
-              _this.router.navigate(['/login']);
-            }
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this);
           }));
         }
+      }, {
+        key: "deleteAccount2",
+        value: function deleteAccount2() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee2() {
+            var user, userRef;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.prev = 0;
+                    user = this.aauth.auth.currentUser; // Get the FS document accroding to the user's UID
+
+                    userRef = this.afs.doc("users/".concat(user.uid)); // Delete the entry from the db
+
+                    _context2.next = 5;
+                    return userRef.delete();
+
+                  case 5:
+                    console.log('Your account have been successfully remove from the db'); // Delete the current user from users
+
+                    _context2.next = 8;
+                    return this.aauth.auth.currentUser.delete();
+
+                  case 8:
+                    console.log('Your account has been successfully deleted!');
+                    this.backToHome();
+                    _context2.next = 15;
+                    break;
+
+                  case 12:
+                    _context2.prev = 12;
+                    _context2.t0 = _context2["catch"](0);
+                    console.log(_context2.t0);
+
+                  case 15:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this, [[0, 12]]);
+          }));
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {}
       }]);
 
-      return AuthGuard;
+      return UserProfileComponent;
     }();
 
-    AuthGuard.ctorParameters = function () {
+    UserProfileComponent.ctorParameters = function () {
       return [{
-        type: _auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"]
+        type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }, {
+        type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"]
       }];
     };
 
-    AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    }) // We can use this on any route that requires this logic.
-    // We can tell Angluar where to apply it, by going back to our router (app-routing.module.ts) and add the can activate proprerty 
-    // And adding it to the arry "canActivate: [AuthGuard]"
-    ], AuthGuard);
+    UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-user-profile',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./user-profile.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/user-profile/user-profile.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./user-profile.component.scss */
+      "./src/app/components/user-profile/user-profile.component.scss")).default]
+    })], UserProfileComponent);
     /***/
   },
 
@@ -1172,18 +1386,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function AuthService(afAuth, afs, router) {
-        var _this2 = this;
+        var _this = this;
 
         _classCallCheck(this, AuthService);
 
         this.afAuth = afAuth;
         this.afs = afs;
-        this.router = router;
-        this.user$ = this.afAuth.authState.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["switchMap"])(function (user) {
+        this.router = router; // we use the auth state to switch an observable in the database record
+
+        this.user$ = this.afAuth.authState.pipe( // we will have access to the user inside the switchmap, which is either going to be the user authentication record or null
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["switchMap"])(function (user) {
+          // if the user is defined
           if (user) {
-            return _this2.afs.doc("users/".concat(user.uid)).valueChanges();
+            // we reach out to the firestore and then point to the document with the matching user id
+            // then call the .valuechanges to convert it to an observable
+            return _this.afs.doc("users/".concat(user.uid)).valueChanges();
           } else {
-            console.log('User not logged in');
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])(null);
           }
         }));
@@ -1194,27 +1412,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function googleSignin() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee() {
-            var provider, credential;
-            return regeneratorRuntime.wrap(function _callee$(_context) {
+          regeneratorRuntime.mark(function _callee3() {
+            var provider, credentials;
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
-                switch (_context.prev = _context.next) {
+                switch (_context3.prev = _context3.next) {
                   case 0:
                     provider = new firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"].GoogleAuthProvider();
-                    _context.next = 3;
+                    _context3.next = 3;
                     return this.afAuth.auth.signInWithPopup(provider);
 
                   case 3:
-                    credential = _context.sent;
-                    console.log('Signed in with google');
-                    return _context.abrupt("return", this.updateUserData(credential.user));
+                    credentials = _context3.sent;
+                    _context3.next = 6;
+                    return this.router.navigate(['/']);
 
                   case 6:
+                    return _context3.abrupt("return", this.updateUserData(credentials.user));
+
+                  case 7:
                   case "end":
-                    return _context.stop();
+                    return _context3.stop();
                 }
               }
-            }, _callee, this);
+            }, _callee3, this);
           }));
         }
       }, {
@@ -1222,68 +1443,125 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function facebookSignin() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee2() {
-            var porvider, credential;
-            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          regeneratorRuntime.mark(function _callee4() {
+            var provider, credentials;
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
-                switch (_context2.prev = _context2.next) {
+                switch (_context4.prev = _context4.next) {
                   case 0:
-                    porvider = new firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"].FacebookAuthProvider();
-                    _context2.next = 3;
-                    return this.afAuth.auth.signInWithPopup(porvider);
+                    provider = new firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"].FacebookAuthProvider();
+                    _context4.next = 3;
+                    return this.afAuth.auth.signInWithPopup(provider);
 
                   case 3:
-                    credential = _context2.sent;
-                    console.log('Signed in with Facebook');
-                    return _context2.abrupt("return", this.updateUserData(credential.user));
+                    credentials = _context4.sent;
+                    return _context4.abrupt("return", this.updateUserData(credentials.user));
 
-                  case 6:
+                  case 5:
                   case "end":
-                    return _context2.stop();
+                    return _context4.stop();
                 }
               }
-            }, _callee2, this);
+            }, _callee4, this);
           }));
         }
       }, {
-        key: "updateUserData",
-        value: function updateUserData(user) {
-          // Sets user data to firestore on login
-          var userRef = this.afs.doc("users/".concat(user.uid));
-          var data = {
-            uid: user.uid,
-            email: user.email,
-            displayName: user.displayName,
-            photoURL: user.photoURL
-          };
-          console.log(userRef.set(data));
-          return userRef.set(data, {
-            merge: true
-          });
+        key: "githubSignin",
+        value: function githubSignin() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee5() {
+            var provider, credentials;
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    provider = new firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"].GithubAuthProvider();
+                    _context5.next = 3;
+                    return this.afAuth.auth.signInWithPopup(provider);
+
+                  case 3:
+                    credentials = _context5.sent;
+                    return _context5.abrupt("return", this.updateUserData(credentials.user));
+
+                  case 5:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
+          }));
+        }
+      }, {
+        key: "twitterSignin",
+        value: function twitterSignin() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee6() {
+            var provider, credentials;
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    provider = new firebase_app__WEBPACK_IMPORTED_MODULE_3__["auth"].TwitterAuthProvider();
+                    _context6.next = 3;
+                    return this.afAuth.auth.signInWithPopup(provider);
+
+                  case 3:
+                    credentials = _context6.sent;
+                    return _context6.abrupt("return", this.updateUserData(credentials.user));
+
+                  case 5:
+                  case "end":
+                    return _context6.stop();
+                }
+              }
+            }, _callee6, this);
+          }));
         }
       }, {
         key: "signOut",
         value: function signOut() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee3() {
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          regeneratorRuntime.mark(function _callee7() {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context3.prev = _context3.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
-                    _context3.next = 2;
+                    _context7.next = 2;
                     return this.afAuth.auth.signOut();
 
                   case 2:
-                    this.router.navigate(['/']);
+                    return _context7.abrupt("return", this.router.navigate(['/']));
 
                   case 3:
                   case "end":
-                    return _context3.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee3, this);
+            }, _callee7, this);
           }));
+        }
+      }, {
+        key: "updateUserData",
+        value: function updateUserData(user) {
+          // taking information from the andular fire auth state and then marrying it to the firestore document
+          // this is the point where you can add any kind of custom data we want to
+          var userRef = this.afs.doc("users/".concat(user.uid)); // we take the user from the credential what we get after the popup sign in
+          // and we will point to the document in the database with that user ID
+          // now we define the data payload what we want to save
+          // then we call set in the user reference and pass it this data
+
+          var data = {
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL
+          };
+          return userRef.set(data, {
+            merge: true
+          });
         }
       }]);
 
@@ -1303,164 +1581,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
     })], AuthService);
-    /***/
-  },
-
-  /***/
-  "./src/app/super-secret/super-secret.component.css":
-  /*!*********************************************************!*\
-    !*** ./src/app/super-secret/super-secret.component.css ***!
-    \*********************************************************/
-
-  /*! exports provided: default */
-
-  /***/
-  function srcAppSuperSecretSuperSecretComponentCss(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3N1cGVyLXNlY3JldC9zdXBlci1zZWNyZXQuY29tcG9uZW50LmNzcyJ9 */";
-    /***/
-  },
-
-  /***/
-  "./src/app/super-secret/super-secret.component.ts":
-  /*!********************************************************!*\
-    !*** ./src/app/super-secret/super-secret.component.ts ***!
-    \********************************************************/
-
-  /*! exports provided: SuperSecretComponent */
-
-  /***/
-  function srcAppSuperSecretSuperSecretComponentTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "SuperSecretComponent", function () {
-      return SuperSecretComponent;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-
-    var SuperSecretComponent =
-    /*#__PURE__*/
-    function () {
-      function SuperSecretComponent() {
-        _classCallCheck(this, SuperSecretComponent);
-      }
-
-      _createClass(SuperSecretComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return SuperSecretComponent;
-    }();
-
-    SuperSecretComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-super-secret',
-      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./super-secret.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/super-secret/super-secret.component.html")).default,
-      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./super-secret.component.css */
-      "./src/app/super-secret/super-secret.component.css")).default]
-    })], SuperSecretComponent);
-    /***/
-  },
-
-  /***/
-  "./src/app/user-profile/user-profile.component.css":
-  /*!*********************************************************!*\
-    !*** ./src/app/user-profile/user-profile.component.css ***!
-    \*********************************************************/
-
-  /*! exports provided: default */
-
-  /***/
-  function srcAppUserProfileUserProfileComponentCss(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItcHJvZmlsZS91c2VyLXByb2ZpbGUuY29tcG9uZW50LmNzcyJ9 */";
-    /***/
-  },
-
-  /***/
-  "./src/app/user-profile/user-profile.component.ts":
-  /*!********************************************************!*\
-    !*** ./src/app/user-profile/user-profile.component.ts ***!
-    \********************************************************/
-
-  /*! exports provided: UserProfileComponent */
-
-  /***/
-  function srcAppUserProfileUserProfileComponentTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "UserProfileComponent", function () {
-      return UserProfileComponent;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-
-    var UserProfileComponent =
-    /*#__PURE__*/
-    function () {
-      function UserProfileComponent() {
-        _classCallCheck(this, UserProfileComponent);
-      }
-
-      _createClass(UserProfileComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return UserProfileComponent;
-    }();
-
-    UserProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-user-profile',
-      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./user-profile.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/user-profile/user-profile.component.html")).default,
-      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./user-profile.component.css */
-      "./src/app/user-profile/user-profile.component.css")).default]
-    })], UserProfileComponent);
     /***/
   },
 
@@ -1495,16 +1615,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var environment = {
       production: false,
-      firebaseConfig: {
-        apiKey: 'AIzaSyBSQ0rooOMsVJ3bqpvehXR326ofJaGp878',
-        authDomain: 'fir-demo-6a00b.firebaseapp.com',
-        databaseURL: 'https://fir-demo-6a00b.firebaseio.com',
-        projectId: 'fir-demo-6a00b',
-        storageBucket: 'fir-demo-6a00b.appspot.com',
-        messagingSenderId: '560114915993',
-        appId: '1:560114915993:web:c69e6c47ba5592ede3b608',
-        measurementId: 'G-6N1C7SK4DG'
-      }
+      apiKey: 'AIzaSyBSQ0rooOMsVJ3bqpvehXR326ofJaGp878',
+      authDomain: 'fir-demo-6a00b.firebaseapp.com',
+      databaseURL: 'https://fir-demo-6a00b.firebaseio.com',
+      projectId: 'fir-demo-6a00b',
+      storageBucket: 'fir-demo-6a00b.appspot.com',
+      messagingSenderId: '560114915993',
+      appId: '1:560114915993:web:3c8d705a96f3506fe3b608',
+      measurementId: 'G-K73T6Q7TE2'
     };
     /*
      * For easier debugging in development mode, you can import the following file
@@ -1540,45 +1658,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var hammerjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! hammerjs */
-    "./node_modules/hammerjs/hammer.js");
-    /* harmony import */
-
-
-    var hammerjs__WEBPACK_IMPORTED_MODULE_1___default =
-    /*#__PURE__*/
-    __webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_1__);
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
     /* harmony import */
 
 
-    var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/platform-browser-dynamic */
     "./node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
     /* harmony import */
 
 
-    var _app_app_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./app/app.module */
     "./src/app/app.module.ts");
     /* harmony import */
 
 
-    var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./environments/environment */
     "./src/environments/environment.ts");
 
-    if (_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].production) {
-      Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["enableProdMode"])();
+    if (_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production) {
+      Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
     }
 
-    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_4__["AppModule"]).catch(function (err) {
+    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"]).catch(function (err) {
       return console.error(err);
     });
     /***/
@@ -1595,7 +1701,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! D:\Dev\Angular\auth-practice\src\main.ts */
+    /*! D:\Dev\Angular\drafter-prework\src\main.ts */
     "./src/main.ts");
     /***/
   }
